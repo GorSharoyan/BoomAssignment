@@ -14,11 +14,15 @@ function App() {
     }
   }
 
+  const handleInputChange = (event) => {
+    setValue(event.target.value);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <input />
-        <>{}</>
+        <input onChange={handleInputChange} />
+        <>{value}</>
       </header>
     </div>
   );
