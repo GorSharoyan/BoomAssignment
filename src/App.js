@@ -1,22 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  let [value, setValue] = useState("");
+
+  function createImage(number) {
+    let result = "";
+    for (let i = 0; i < number; i++) {
+      for (let j = 0; j < number; j++) {
+        result += "*";
+      }
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <input />
+        <>{}</>
       </header>
     </div>
   );
