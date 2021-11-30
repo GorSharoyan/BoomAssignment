@@ -3,21 +3,44 @@ import { useState } from "react";
 
 //services imports
 import { printNumberPatternUp } from "./services/printPattern.services";
-import { printPatternDown } from "./services/printPattern.services";
+import { printNumberPatternDown } from "./services/printPattern.services";
 
 function App() {
   let [value, setValue] = useState("");
+  let [toggle, setToggle] = useState(0);
 
+  //main function for drawing pattern
   const handleInputChange = (event) => {
-    let number = event.target.value;
+    if (toggle === 1) {
+      setValue(printNumberPatternUp(event.target.value));
+    } else {
+      setValue(printNumberPatternDown(event.target.value));
+    }
+  };
+
+  //function for button toggle
+  const handleReverse = () => {
+    if (toggle === 1) {
+      setToggle(0);
+    } else {
+      setToggle(1);
+    }
   };
 
   return (
     <div className="App">
-      <header className="App-header">
-        <input onChange={handleInputChange} />
-        <>{value}</>
-      </header>
+      <div className="App-body">
+        <div>
+          <input onChange={handleInputChange} />
+          <button onClick={handleReverse}>reverse</button>
+        </div>
+        <div
+          className="card"
+          dangerouslySetInnerHTML={{
+            __html: value
+          }}
+        />
+      </div>
     </div>
   );
 }
