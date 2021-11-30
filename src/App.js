@@ -18,7 +18,7 @@ function App() {
     }
   };
 
-  //function for button toggle
+  //function for button toggles
   const handleReverse = () => {
     if (toggle === 1) {
       setToggle(0);
