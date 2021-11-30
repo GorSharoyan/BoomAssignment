@@ -1,9 +1,8 @@
 import "./App.css";
 import { useState } from "react";
 
-//services imports
-import { printNumberPatternUp } from "./services/printPattern.services";
-import { printNumberPatternDown } from "./services/printPattern.services";
+//componets
+import PatternDrawer from "./components/PatternDrawer";
 
 function App() {
   let [value, setValue] = useState("");
@@ -12,13 +11,13 @@ function App() {
   //main function for drawing pattern
   const handleInputChange = (event) => {
     if (toggle === 1) {
-      setValue(printNumberPatternUp(event.target.value));
+      setValue(event.target.value);
     } else {
-      setValue(printNumberPatternDown(event.target.value));
+      setValue(event.target.value);
     }
   };
 
-  //function for button toggle
+  //function for button toggles
   const handleReverse = () => {
     if (toggle === 1) {
       setToggle(0);
@@ -30,16 +29,11 @@ function App() {
   return (
     <div className="App">
       <div className="App-body">
-        <div>
+        <div className="">
           <input onChange={handleInputChange} />
-          <button onClick={handleReverse}>reverse</button>
+          <button onClick={handleReverse}>Reverse</button>
         </div>
-        <div
-          className="card"
-          dangerouslySetInnerHTML={{
-            __html: value
-          }}
-        />
+        <PatternDrawer value={value} toggle={toggle} />
       </div>
     </div>
   );

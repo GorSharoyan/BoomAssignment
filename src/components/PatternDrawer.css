@@ -1,0 +1,8 @@
+.card{
+    margin-top:15px;
+    padding:15px;
+    text-align: left;
+    background-color: rgb(243, 249, 252);
+    color:  black;
+    border-radius: 3px;
+ }
